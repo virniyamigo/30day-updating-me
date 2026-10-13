@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Growth" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>30-Day Growth</title>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">30-DAY GROWTH</p>
+        <h1 id="pageTitle">Today</h1>
+      </div>
+      <div class="ring" id="dailyRing"><span id="dailyPct">0%</span></div>
+    </header>
+
+    <main>
+      <section class="page active" data-page="today">
+        <div class="hero card">
+          <div>
+            <p class="muted" id="todayDate"></p>
+            <h2>Твій день</h2>
+            <p class="muted">Закрий головні напрямки без перевантаження.</p>
+          </div>
+          <button class="ghost" id="resetToday">Скинути</button>
+        </div>
+        <div id="todayTasks" class="stack"></div>
+
+        <div class="card">
+          <div class="section-head">
+            <h3>Нотатка дня</h3><span class="muted">автозбереження</span>
+          </div>
+          <textarea id="quickNote" placeholder="Що сьогодні важливо?"></textarea>
+        </div>
+      </section>
+
+      <section class="page" data-page="plan">
+        <div class="card">
+          <div class="section-head">
+            <h3>30 днів</h3><span id="planSummary" class="muted"></span>
+          </div>
+          <div class="progress"><div id="planBar"></div></div>
+        </div>
+        <div id="daysList" class="stack"></div>
+      </section>
+
+      <section class="page" data-page="journal">
+        <div class="card">
+          <h3>Journal</h3>
+          <p class="muted">Запиши думки, висновок або підсумок дня.</p>
+          <textarea id="journalText" class="big" placeholder="Пиши як є..."></textarea>
+          <div class="row">
+            <button class="primary" id="saveJournal">Зберегти запис</button>
+            <button class="ghost" id="clearJournal">Очистити</button>
+          </div>
+        </div>
+        <div id="journalEntries" class="stack"></div>
+      </section>
+
+      <section class="page" data-page="progress">
+        <div class="grid2" id="statsGrid"></div>
+        <div class="card">
+          <div class="section-head"><h3>Прогрес за напрямками</h3><span class="muted">останні дані</span></div>
+          <div id="categoryProgress" class="stack compact"></div>
+        </div>
+      </section>
+
+      <section class="page" data-page="settings">
+        <div class="card">
+          <h3>Налаштування</h3>
+          <label class="field">Імʼя
+            <input id="userName" placeholder="Наприклад, Вадим" />
+          </label>
+          <label class="field">Головна ціль на 30 днів
+            <input id="mainGoal" placeholder="Наприклад: англійська + перший AI-проєкт" />
+          </label>
+          <label class="field">Хвилин англійської на день
+            <input id="englishMinutes" type="number" min="5" max="240" />
+          </label>
+          <button class="primary" id="saveSettings">Зберегти</button>
+        </div>
+
+        <div class="card danger-card">
+          <h3>Дані</h3>
+          <p class="muted">Усе зберігається локально на цьому iPhone.</p>
+          <button class="danger" id="wipeData">Видалити всі дані</button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <button data-go="today" class="active"><span>◉</span><small>Today</small></button>
+      <button data-go="plan"><span>30</span><small>Days</small></button>
+      <button data-go="journal"><span>✎</span><small>Journal</small></button>
+      <button data-go="progress"><span>↗</span><small>Progress</small></button>
+      <button data-go="settings"><span>⚙</span><small>Settings</small></button>
+    </nav>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
